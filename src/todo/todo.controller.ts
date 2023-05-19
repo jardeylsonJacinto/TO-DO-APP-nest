@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Put,
+  Delete,
+} from '@nestjs/common';
 import { TodoDTO } from './todo.dto';
 import { todos } from './todos-mock';
 
@@ -27,5 +35,13 @@ export class TodoController {
   updateTodo(@Body() updateTodo: TodoDTO, @Param(':id') id): TodoDTO {
     todosData = todosData.map((todo) => (todo.id === id ? updateTodo : todo));
     return updateTodo;
+  }
+
+  @Delete(':id')
+  deleteTodo(@Param('id') id): TodoDTO {
+    const todoToDelete = todosData.find((todo) => todo.id === id);
+    todosData = todosData.filter((todo) => todo.id !== id);
+
+    return todoToDelete;
   }
 }
