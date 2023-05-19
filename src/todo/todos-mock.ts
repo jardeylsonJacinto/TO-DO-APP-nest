@@ -1,4 +1,4 @@
-import { TodoDTO } from './src/todo/toto.dto';
+import { TodoDTO } from './toto.dto';
 
 export const todos: TodoDTO[] = [
   {

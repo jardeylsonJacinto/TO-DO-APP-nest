@@ -2,11 +2,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { MongooseModule } from '@nestjs/mongoose';
-import { TodoController } from './todo/todo/todo.controller';
+import { TodoController } from './todo/todo.controller';
 
 @Module({
-  imports: [MongooseModule.forRoot('')],
+  imports: [],
   controllers: [AppController, TodoController],
   providers: [AppService],
 })
